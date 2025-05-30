@@ -72,7 +72,7 @@ export class InventoryController {
 
 
 
-async getLow_threshold (req:Request, res:Response, next:NextFunction){
+async getLow_threshold(req:Request, res:Response, next:NextFunction){
     try {
         const items = await Inventory.findAll({
           where: {

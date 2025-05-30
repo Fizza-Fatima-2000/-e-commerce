@@ -1,13 +1,14 @@
 import { Router } from "express";
 import SaleController from "../controllers/sale.controller";
+import { adminAuth } from "../middlewares/adminAuth";
 
 const router = Router();
 
 
 
-router.post("/create", SaleController.createSale);
-router.get("/get/filters", SaleController.getDataByFilter);
-router.get("/get/revenue", SaleController.saleRevenue);
+router.post("/create",adminAuth, SaleController.createSale);
+router.get("/get/filters", adminAuth,SaleController.getDataByFilter);
+router.get("/get/revenue", adminAuth,SaleController.saleRevenue);
 
 
 

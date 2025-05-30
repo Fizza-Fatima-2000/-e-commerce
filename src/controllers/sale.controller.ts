@@ -103,12 +103,17 @@ export class SaleController {
           raw: true,
         });
     
-        res.status(200).json({
-          period,
+        // res.status(200).json({
+        //   period,
+        //   from: startDate.format("YYYY-MM-DD"),
+        //   to: endDate.format("YYYY-MM-DD"),
+        //   ...sales[0],
+        // });
+        successHandler(res, 201,  {period,
           from: startDate.format("YYYY-MM-DD"),
           to: endDate.format("YYYY-MM-DD"),
-          ...sales[0],
-        });
+          ...sales[0]}, "Sales List ");
+
       } catch (error:any) {
         return next(new ErrorHandler(error, 500));
     }
